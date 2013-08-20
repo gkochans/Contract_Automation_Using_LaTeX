@@ -1,0 +1,177 @@
+% DISCLAIMER
+% This document is only intended as an example of how to set up an automated contract template using LaTeX.
+
+% The author, Greg Kochansky, is an attorney licensed to practice law in New York State and the Commonwealth of Massachusetts. The author is NOT your attorney. This document does not constitute legal advice and does not create an attorney-client relationship between the author and you, or between the author and any business or other entity of which you are an owner, shareholder, or agent.
+
+% To have a non-disclosure agreement prepared for you, seek advice from an attorney licensed to practice law in the state or territory where you are located.
+
+% Set the document class to "article" and the base font size to 12 point
+\documentclass[12pt]{article}
+
+% Make the PDF look like a Microsoft Word document
+\usepackage{wordlike}
+
+% This package processes the conditional clauses
+\usepackage{xstring}
+
+% Set margins to one inch on all sides
+\PassOptionsToPackage{margin=1in}{geometry}
+
+% Set line spacing
+\usepackage{setspace}
+\setstretch{1.25}
+
+% Left justified text
+\raggedright
+
+% Adjust page number vertical location.
+\setlength{\footskip}{50pt}
+
+\begin{document}
+
+% Define text to be substituted into the contract.
+\newcommand{\TitleText}{Non-Disclosure Agreement}
+\newcommand{\PartyOneLegalName}{OldCorp, LLC}
+\newcommand{\PartyOneEntityType}{Limited Liability Company}
+\newcommand{\PartyOneEntityOrgState}{the State of New York}
+\newcommand{\PartyOneAddressOne}{100 15th Avenue}
+\newcommand{\PartyOneAddressTwo}{New York, NY 10000}
+\newcommand{\PartyOneEmailAddress}{info@oldcorp.com}
+\newcommand{\PartyOneSignatoryFirstName}{John}
+\newcommand{\PartyOneSignatoryLastName}{Smith}
+\newcommand{\PartyOneSignatoryPosition}{Member and Manager}
+\newcommand{\PartyTwoLegalName}{NewCorp, Inc.}
+\newcommand{\PartyTwoEntityType}{Corporation}
+\newcommand{\PartyTwoEntityOrgState}{the State of Delaware}
+\newcommand{\PartyTwoAddressOne}{1 14th Avenue}
+\newcommand{\PartyTwoAddressTwo}{New York, NY 10000}
+\newcommand{\PartyTwoEmailAddress}{info@newcorp.new}
+\newcommand{\PartyTwoSignatoryFirstName}{Mary}
+\newcommand{\PartyTwoSignatoryLastName}{Jones}
+\newcommand{\PartyTwoSignatoryPosition}{President}
+\newcommand{\StateLaw}{the State of New York}
+\newcommand{\VenueCity}{New York}
+\newcommand{\VenueState}{New York}
+
+% Set conditional clauses.
+\newcommand{\OneWayOrTwoWay}{one-way}
+\newcommand{\ArbitrationOrCourt}{arbitration}
+
+\begin{center}
+{\bf \TitleText}
+\end{center}
+
+% Suppress page number on first page.
+\thispagestyle{empty}
+
+\vspace{.5cm}
+
+\IfSubStr{\OneWayOrTwoWay}{one-way}{This \TitleText\ dated \today\ between \PartyOneLegalName, a \PartyOneEntityType\ organized under the laws of \PartyOneEntityOrgState\ and located at \PartyOneAddressOne, \PartyOneAddressTwo\ (``Recipient''), and \PartyTwoLegalName, a \PartyTwoEntityType\ organized under the laws of \PartyTwoEntityOrgState\ and located at \PartyTwoAddressOne, \PartyTwoAddressTwo\ (``Discloser''), requires Recipient to protect  confidential information received from Discloser.}{This \TitleText\ dated \today\ between \PartyOneLegalName, a \PartyOneEntityType\ organized under the laws of \PartyOneEntityOrgState\ and located at \PartyOneAddressOne, \PartyOneAddressTwo, and \PartyTwoLegalName, a \PartyTwoEntityType\ organized under the laws of \PartyTwoEntityOrgState\ and located at \PartyTwoAddressOne, \PartyTwoAddressTwo, requires the protection of confidential information that one party (``Recipient'') receives from the other party (``Discloser'').}
+
+
+\begin{description}\itemsep2pt
+  \item {\bf Definitions}
+    \begin{description}
+      \item[``Agreement''] means this certain \TitleText\ dated \today.
+      \item[``Control''] means to own or control, directly or indirectly, more than 50\% of voting shares.
+      \item[``Information''] means confidential information disclosed under this Agreement.
+    \end{description}
+\end{description}
+\begin{enumerate}\itemsep2pt
+  \item {\bf Form of Disclosure.}
+    \begin{enumerate}\itemsep2pt
+      \item Information may be disclosed:
+        \begin{enumerate}\itemsep2pt
+           \item in writing;
+           \item by oral presentation;
+           \item by visual presentation;
+           \item by Discloser giving Recipient access to a database or digital archive of any kind; or
+           \item by delivery of physical objects.
+        \end{enumerate}
+      \item All Information must be marked ``CONFIDENTIAL''. In the event that Information is disclosed in a form that cannot be marked (for example, through oral presentation), Discloser shall send Recipient an e-mail describing the Information, the date and time of disclosure, and the manner in which the Information was disclosed. The email shall conclude with the following language: ``The information described in this e-mail is marked `CONFIDENTIAL' under the \TitleText\ dated \today.''
+    \end{enumerate}
+  \item {\bf Standard of Care.}
+    \begin{enumerate}\itemsep2pt
+      \item Recipient agrees to use reasonable care and discretion to prevent disclosure of Information in any form. In no event may Recipient use less care and discretion to prevent disclosure of Information than it uses to protect its own similar confidential information from disclosure.
+      \item Recipient agrees to use Information only as the Discloser intends.
+    \end{enumerate}
+  \item {\bf Scope Of Disclosure.}
+    \begin{enumerate}\itemsep2pt
+      \item Recipient may disclose Information to:
+      \begin{enumerate}\itemsep2pt
+        \item employees of Recipient who have a need to know the Information;
+        \item employees of any legal entity that Recipient controls, is controlled by Recipient, or is under common control with Recipient; and
+        \item any third party, with Discloser's prior, written consent.
+      \end{enumerate}
+      \item Before disclosing Information to a party described above, Recipient must have a prior, written contract requiring that party to protect the Information in accordance with this Agreement.
+      \item Recipient may disclose Information to the extent required by law, but only after giving Discloser sufficient notice and opportunity to secure a protective order.
+    \end{enumerate}
+  \item {\bf Time Limitation.} Information is subject to this Agreement for five years following the date of disclosure.
+  \item {\bf Exceptions.} Recipient is not bound to prevent disclosure of Information if:
+    \begin{enumerate}\itemsep2pt
+      \item Recipient possessed the Information prior to disclosure by Discloser,
+      \item Recipient developed the Information independently prior to disclosure by Discloser,
+      \item Recipient obtained the Information from a source other than Discloser,
+      \item the Information was public prior to disclosure by Discloser, or
+      \item Discloser has disclosed the Information to another party without imposing a confidentiality restriction on that party.
+    \end{enumerate}
+  \item {\bf Disclaimers.}
+    \begin{enumerate}\itemsep2pt
+      \item Discloser does not provide warranties of any kind with regard to Information.
+      \item Information regarding Discloser's future products, services, or business dealings is subject to change or retraction without notice. Discloser maintains sole discretion regarding future development, release, and timing of products or services described in the Information.
+      \item Discloser is not liable for any damages arising out of the use of Information.
+      \item By disclosing Information to Recipient, Discloser does not grant Recipient any license or right to any trademark, copyright, or patent owned by Discloser now or in the future.
+    \end{enumerate}
+  \item {\bf Termination.} Either party may terminate this Agreement at least 30 days after the other party has received written notice regarding the termination. However, any terms that by nature extend beyond termination of the Agreement will remain in effect.
+  \item {\bf Assignment.} This Agreement applies to the parties' respective successors and assigns. Neither party may assign or transfer its rights or delegate its duties under this Agreement without the prior, written consent of the other party.
+  \item {\bf No Requirement to Act.} Under this Agreement, neither party is required to:
+    \begin{enumerate}\itemsep2pt
+      \item disclose or receive information,
+      \item perform any work, or
+      \item enter into any other contract.
+    \end{enumerate}
+  \item {\bf No Agency Relationship.} This Agreement does not make either party the principal or agent of the other party.
+  \item {\bf Recipient's Rights.} A Recipient of Information may:
+    \begin{enumerate}\itemsep2pt
+      \item develop, produce, market, or distribute products or services of any kind, even if they compete with the products or services of Discloser;
+      \item develop, produce, market, or distribute products or services of any kind, even to another party that competes with the Discloser;
+      \item direct the actions of its own employees and agents as it sees fit; and
+      \item enter into a business relationship with any other party.
+    \end{enumerate}
+  \item {\bf Recipient Feedback Regarding Information.} If Recipient provides feedback in any form to Discloser regarding Information, Discloser need not keep the feedback confidential, except that Discloser will have no right to identify Recipient as the source of the feedback.
+  \item {\bf Modification.} Modifications to this Agreement must be in writing and signed by both parties.
+  \item {\bf Applicable Law.} The laws of \StateLaw\ govern this Agreement and any controversy or claim arising out of or relating to this Agreement, or the breach thereof, whether sounding in contract, tort, or otherwise, without regard to that state's choice of law principles.
+  \IfSubStr{\ArbitrationOrCourt}{arbitration}{\item {\bf Dispute Resolution.} Any controversy or claim arising out of or relating to this Agreement, or the breach thereof, whether sounding in contract, tort, or otherwise, shall be settled by arbitration administered by the American Arbitration Association under its Commercial Arbitration Rules, and judgment on the award rendered by the arbitrator(s) may be entered in any court having jurisdiction thereof.}{\item {\bf Dispute Resolution.} Any controversy or claim arising out of or relating to this Agreement, or the breach thereof, whether sounding in contract, tort, or otherwise, shall be decided solely and exclusively by State or Federal courts located in \VenueCity, \VenueState.}
+  \item {\bf Entire Agreement.} This Agreement is the complete agreement between the parties. Neither party is relying on any written or oral communications, representations, or commitments not specified in this Agreement.
+  \item {\bf Headings.} Paragraph headings in this Agreement are not part of this Agreement and shall not be used to construe it.
+  \item
+  {\bf Notice.} Any notice required under this Agreement shall be delivered to the following electronic mail addresses:
+
+  {\bf To \PartyOneLegalName:} \PartyOneEmailAddress
+
+  {\bf To \PartyTwoLegalName:} \PartyTwoEmailAddress
+
+  \item {\bf Counterparts.} This Agreement may be executed in counterparts. Each counterpart is an original, but all counterparts, taken together, constitute one and the same Agreement. All counterparts become effective when each party has signed a counterpart and delivered it to the other party.
+  \item {\bf Original Copies.} Any reproduction of this Agreement made by reliable means (in digital form, or by electronic image, photocopy, or facsimile) will be considered an original copy.
+  \item {\bf Force Majeure.} Each party shall be excused from any breach of this Agreement which is proximately caused by government regulation, war, strike, act of God, or other similar circumstance normally deemed outside the control of well-managed businesses.
+\end{enumerate}
+
+\vspace{2cm}
+
+\begin{center}
+{\bf [SPACE INTENTIONALLY LEFT BLANK]}
+\end{center}
+\pagebreak
+
+The parties are signing this \TitleText\ on the date stated in the introductory clause.
+
+\vspace{2cm}
+
+\noindent \begin{tabular}{l l}
+On behalf of \PartyOneLegalName: & \rule{5cm}{.25pt}\\
+                         & \PartyOneSignatoryFirstName\ \PartyOneSignatoryLastName\\ & \PartyOneSignatoryPosition       \\\\\\\\\\\\
+On behalf of \PartyTwoLegalName: & \rule{5cm}{.25pt}\\
+                         & \PartyTwoSignatoryFirstName\ \PartyTwoSignatoryLastName\\ & \PartyTwoSignatoryPosition       \\\\\\
+\end{tabular}
+
+\end{document}
